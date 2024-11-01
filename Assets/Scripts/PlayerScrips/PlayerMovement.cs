@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
+
+    [Header("Player Rotation")]
+    private Vector3 target;
+    private Camera camera;
 
     private PlayerInputHandler inputHandler;    // este tiene el MovementInput
     private Rigidbody2D rb;
@@ -15,22 +20,27 @@ public class PlayerMovement : MonoBehaviour {
     public event Action<Vector2> OnMove;
 
 
-    private void Awake() {
+    private void Awake()
+    {
         inputHandler = GetComponent<PlayerInputHandler>();
         rb = GetComponent<Rigidbody2D>();
+        camera = Camera.main;
     }
 
-    private void Update() {
+    private void Update()
+    {
         //HandleDash();
         movement = inputHandler.MovementInput;
         OnMove?.Invoke(movement);
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         Move();
     }
 
-    private void Move() {
+    private void Move()
+    {
         rb.velocity = movement * moveSpeed;
     }
 }
