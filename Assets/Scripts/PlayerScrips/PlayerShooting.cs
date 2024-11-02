@@ -1,12 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-    [SerializeField] private PlayerInputHandler inputHandler;
+    private PlayerInputHandler inputHandler;
     [SerializeField] private float shootOffset;
     private Vector2 lastInput = Vector2.down;
+
+    public bool hasShot = false;
+    private PlayerAnimator playerAnimator;
+    private float attackDuration = 0.1f; // Duración de la animación
+    private readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
+
+
+    void Awake() 
+    {
+        inputHandler = FindObjectOfType<PlayerInputHandler>();
+        if (inputHandler == null) 
+        {
+            Debug.LogError($"No PlayerInputHandler found in scene for {gameObject.name}");
+            enabled = false;
+        }
+
+        playerAnimator = GetComponentInChildren<PlayerAnimator>();
+    }
 
     void Start()
     {
@@ -28,6 +47,13 @@ public class PlayerShooting : MonoBehaviour
     {
         if (inputHandler.IsAttackPressed)
         {
+            hasShot = true;
+            if (playerAnimator != null) {
+                playerAnimator.GetComponent<Animator>().SetBool(IsAttackingHash, true);
+            }
+            StartCoroutine(ResetShootState());
+            Debug.Log("hasShot: " + hasShot);
+
             // Instanciar el candy en la posición del punto de disparo
             GameObject candy = CandyPool.Instance.RequestCandy();
             candy.transform.position = (Vector2)transform.position + shootOffset * inputHandler.MovementInput;
@@ -37,5 +63,16 @@ public class PlayerShooting : MonoBehaviour
 
 
         }
+        hasShot = false;
+        Debug.Log("2nd hasShot: " + hasShot);
+
     }
+    private IEnumerator ResetShootState() {
+        yield return new WaitForSeconds(attackDuration);
+        hasShot = false;
+        if (playerAnimator != null) {
+            playerAnimator.GetComponent<Animator>().SetBool(IsAttackingHash, false);
+        }
+    }
+
 }

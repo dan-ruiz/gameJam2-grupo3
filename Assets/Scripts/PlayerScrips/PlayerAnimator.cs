@@ -7,7 +7,6 @@ public class PlayerAnimator : MonoBehaviour
 {
     private Animator animator;
     private PlayerMovement movement;
-    private PlayerCombat combat;
 
     // Cache animator parameters for better performance
     private readonly int HorizontalHash = Animator.StringToHash("MovementX");
@@ -17,23 +16,20 @@ public class PlayerAnimator : MonoBehaviour
     private readonly int IdleVerticalHash = Animator.StringToHash("LastY");
 
     private readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
-    private readonly int IsDashingHash = Animator.StringToHash("IsDashing");
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        movement = transform.parent.gameObject.GetComponent<PlayerMovement>(); // esta es la que se integra
-        //combat = transform.parent.gameObject.GetComponent<PlayerCombat>();
+        movement = transform.parent.gameObject.GetComponent<PlayerMovement>();
 
         // Subscribe to events
         movement.OnMove += HandleMovementAnimation;
-        //combat.OnAttackStart += HandleAttackStart;
-        //combat.OnAttackEnd += HandleAttackEnd;
 
         // Set a default facing direction (e.g., right)
         animator.SetFloat(IdleHorizontalHash, 0f);
         animator.SetFloat(IdleVerticalHash, -1f);
     }
+
 
     private void HandleMovementAnimation(Vector2 movement)
     {
@@ -48,20 +44,5 @@ public class PlayerAnimator : MonoBehaviour
         }
     }
 
-    private void HandleAttackStart() => animator.SetBool(IsAttackingHash, true);
-    private void HandleAttackEnd() => animator.SetBool(IsAttackingHash, false);
-
-    private void OnDestroy()
-    {
-        // Unsubscribe from events
-        if (movement != null)
-        {
-            movement.OnMove -= HandleMovementAnimation;
-        }
-        if (combat != null)
-        {
-            combat.OnAttackStart -= HandleAttackStart;
-            combat.OnAttackEnd -= HandleAttackEnd;
-        }
-    }
+ 
 }
