@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Rotation")]
     private Vector3 target;
-    private Camera camera;
+    private Camera playerCamera;
 
     private PlayerInputHandler inputHandler;    // este tiene el MovementInput
     private Rigidbody2D rb;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         inputHandler = GetComponent<PlayerInputHandler>();
         rb = GetComponent<Rigidbody2D>();
-        camera = Camera.main;
+        playerCamera = Camera.main;
     }
 
     private void Update()
