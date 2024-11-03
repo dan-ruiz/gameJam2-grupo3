@@ -5,7 +5,7 @@ using UnityEngine;
 public class Candy : MonoBehaviour
 {
 
-    [SerializeField] private float candySpeed = 5f;
+    [SerializeField] private float candySpeed = 6f;
     [SerializeField] private Rigidbody2D candyRb;
     [SerializeField] private int damage = 5;
     [SerializeField] private float maxDistance = 10f; // Distancia máxima que puede recorrer el candy
@@ -26,21 +26,20 @@ public class Candy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Verificar si el objeto con el que colisiona tiene el tag "Enemy"
-        /*
-        if (other.gameObject.CompareTag("Enemy"))
+        // Verificar si el objeto con el que colisiona no tiene el tag "Player", "Ally" o "Candy"
+        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Ally") && !collision.gameObject.CompareTag("Candy"))
         {
             // Aquí se debe agregar lógica adicional si es necesario, como reducir la vida del enemigo
-
-            
-            Obtener el componente Enemy del objeto colisionado
-            other.GetComponent<Enemy>().TakeDamage(damage);
-            
+            /*
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                // Obtener el componente Enemy del objeto colisionado
+                collision.GetComponent<Enemy>().TakeDamage(damage);
+            }
+            */
 
             ReturnToPool();
-        }*/
-
-        ReturnToPool();
+        }
     }
 
     public void SetPool(CandyPool candyPool)

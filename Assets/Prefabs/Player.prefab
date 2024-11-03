@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1698518240308175177}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05269c246f63a14288c2d903dc37bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 4
 --- !u!114 &1698518240308175177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1398f17f385df3248aa8ede4b50047dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHandler: {fileID: 8677952340869111330}
   shootOffset: 1
 --- !u!1 &1585145035144510871
 GameObject:
