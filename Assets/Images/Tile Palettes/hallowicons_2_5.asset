@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: hallowicons_2_5
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1544521668, guid: 7880e50e5a70d1f40ae867b7dda964bd, type: 3}
+  m_Sprite: {fileID: -1120504507, guid: 7880e50e5a70d1f40ae867b7dda964bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
