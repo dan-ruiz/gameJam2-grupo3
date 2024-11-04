@@ -9,16 +9,20 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private float shootOffset;
     private Vector2 lastInput = Vector2.down;
 
+    private GameManager gameManager;
+
     public bool hasShot = false;
     private PlayerAnimator playerAnimator;
     private float attackDuration = 0.1f; // Duración de la animación
     private readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
 
 
-    void Awake() 
+    void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
+
         inputHandler = FindObjectOfType<PlayerInputHandler>();
-        if (inputHandler == null) 
+        if (inputHandler == null)
         {
             Debug.LogError($"No PlayerInputHandler found in scene for {gameObject.name}");
             enabled = false;
@@ -35,7 +39,11 @@ public class PlayerShooting : MonoBehaviour
 
     void LateUpdate()
     {
-        Shoot();
+        if (gameManager.isGameActive)
+        {
+            Shoot();
+        }
+
 
         if (inputHandler.MovementInput != Vector2.zero)
         {
@@ -48,7 +56,8 @@ public class PlayerShooting : MonoBehaviour
         if (inputHandler.IsAttackPressed)
         {
             hasShot = true;
-            if (playerAnimator != null) {
+            if (playerAnimator != null)
+            {
                 playerAnimator.GetComponent<Animator>().SetBool(IsAttackingHash, true);
             }
             StartCoroutine(ResetShootState());
@@ -67,10 +76,12 @@ public class PlayerShooting : MonoBehaviour
         Debug.Log("2nd hasShot: " + hasShot);
 
     }
-    private IEnumerator ResetShootState() {
+    private IEnumerator ResetShootState()
+    {
         yield return new WaitForSeconds(attackDuration);
         hasShot = false;
-        if (playerAnimator != null) {
+        if (playerAnimator != null)
+        {
             playerAnimator.GetComponent<Animator>().SetBool(IsAttackingHash, false);
         }
     }

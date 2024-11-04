@@ -8,13 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
 
-    [Header("Player Rotation")]
-    private Vector3 target;
-    private Camera playerCamera;
-
     private PlayerInputHandler inputHandler;    // este tiene el MovementInput
     private Rigidbody2D rb;
     private Vector2 movement;
+
+    private GameManager gameManager;
 
     // Events for animation and other systems
     public event Action<Vector2> OnMove;
@@ -22,9 +20,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = FindObjectOfType<GameManager>();
         inputHandler = GetComponent<PlayerInputHandler>();
         rb = GetComponent<Rigidbody2D>();
-        playerCamera = Camera.main;
     }
 
     private void Update()
@@ -36,7 +34,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
+        if (gameManager.isGameActive)
+        {
+            Move();
+        }
+
     }
 
     private void Move()
