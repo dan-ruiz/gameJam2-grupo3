@@ -11,11 +11,14 @@ public class PlayerShooting : MonoBehaviour
 
     private GameManager gameManager;
 
+    // Variables de animacion
     public bool hasShot = false;
     private PlayerAnimator playerAnimator;
     private float attackDuration = 0.1f; // Duración de la animación
     private readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
 
+    // Variables de Audio
+    public AudioClip shootClip;
 
     void Awake()
     {
@@ -61,7 +64,7 @@ public class PlayerShooting : MonoBehaviour
                 playerAnimator.GetComponent<Animator>().SetBool(IsAttackingHash, true);
             }
             StartCoroutine(ResetShootState());
-            Debug.Log("hasShot: " + hasShot);
+            //Debug.Log("hasShot: " + hasShot);
 
             // Instanciar el candy en la posición del punto de disparo
             GameObject candy = CandyPool.Instance.RequestCandy();
@@ -70,10 +73,11 @@ public class PlayerShooting : MonoBehaviour
             candy.SetActive(true);
             shootCandy?.SetDirection(inputHandler.MovementInput != Vector2.zero ? inputHandler.MovementInput : lastInput);
 
+            AudioManager.Instance.PlaySFX(shootClip);
 
         }
         hasShot = false;
-        Debug.Log("2nd hasShot: " + hasShot);
+        //Debug.Log("2nd hasShot: " + hasShot);
 
     }
     private IEnumerator ResetShootState()
