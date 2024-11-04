@@ -64,7 +64,7 @@ public class PlayerShooting : MonoBehaviour
                 playerAnimator.GetComponent<Animator>().SetBool(IsAttackingHash, true);
             }
             StartCoroutine(ResetShootState());
-            Debug.Log("hasShot: " + hasShot);
+            //Debug.Log("hasShot: " + hasShot);
 
             // Instanciar el candy en la posición del punto de disparo
             GameObject candy = CandyPool.Instance.RequestCandy();
@@ -77,7 +77,7 @@ public class PlayerShooting : MonoBehaviour
 
         }
         hasShot = false;
-        Debug.Log("2nd hasShot: " + hasShot);
+        //Debug.Log("2nd hasShot: " + hasShot);
 
     }
     private IEnumerator ResetShootState()
