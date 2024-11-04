@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Candy
   - Enemy
+  - MapConfiner
   layers:
   - Default
   - TransparentFX

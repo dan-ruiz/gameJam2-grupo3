@@ -46,8 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseButton: {fileID: 0}
   pauseMenu: {fileID: 0}
-  gameOverText: {fileID: 0}
+  gameOverMenu: {fileID: 0}
   isGameActive: 0
+  isPaused: 0
   gameMusic: {fileID: 8300000, guid: d0a4d192162a820469a6da8273838c3e, type: 3}
+  clickButton: {fileID: 8300000, guid: f471feb55f08ae94a98536d482c670b3, type: 3}
   inactiveSound: {fileID: 0}
   activeSound: {fileID: 0}
