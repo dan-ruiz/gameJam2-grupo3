@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class fireController : MonoBehaviour
+public class FireController : MonoBehaviour
 {
 
     [Range(1, 15)]
@@ -23,11 +23,14 @@ public class fireController : MonoBehaviour
         playerInRange = Physics2D.OverlapCircle(fireCheckRange.position, viewRadius, playerLayer);
         if (playerInRange)
         {
-            playerPos= FireAngle().transform;
-            Vector2 direction = playerPos.position- transform.position;
-            float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f,0f,angle);
-            // transform.Rotate(new Vector3(0, 20, playerPos.position.z));
+            playerPos = FireAngle().transform;
+
+            Vector2 direction = playerPos.position - transform.position;
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            
             if (Time.time > fireDelay + timeLastShoot)
             {
                 timeLastShoot = Time.time;
@@ -37,7 +40,7 @@ public class fireController : MonoBehaviour
     }
     private void Fire()
     {
-        GameObject spellInvoke =  Instantiate(enemySpell, fireCheckRange.position, Quaternion.identity);
+        GameObject spellInvoke = Instantiate(enemySpell, fireCheckRange.position, Quaternion.identity);
         Vector2 shootDir = (playerPos.position - transform.position).normalized;
         spellInvoke.GetComponent<EnemySpell>().setDirection(shootDir);
     }
@@ -49,6 +52,6 @@ public class fireController : MonoBehaviour
     public Collider2D FireAngle()
     {
         return Physics2D.OverlapCircle(fireCheckRange.position, viewRadius, playerLayer);
-        
+
     }
 }

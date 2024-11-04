@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8677952340869111330}
   - component: {fileID: 3864334109963396716}
   - component: {fileID: 1698518240308175177}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootOffset: 1
   hasShot: 0
+  shootClip: {fileID: 0}
 --- !u!1 &1585145035144510871
 GameObject:
   m_ObjectHideFlags: 0

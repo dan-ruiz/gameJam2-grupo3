@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class AiDetector : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] float distance; 
-    private Vector3 initialPosition;
+    [Range(1, 15)]
+    [SerializeField]
+    private float viewRadius;
+    public Transform viewCheckRange;
+    public LayerMask targetLayer;
+    public Vector2 initialPos;
+    public bool targetInRange;
 
-   private Animator animator;
-    private SpriteRenderer spriteRenderer;
     private void Start() {
-        animator = GetComponent<Animator>();
-        initialPosition = transform.position;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        initialPos = transform.position;
+        targetLayer = GetComponent<FireController>().playerLayer;
     }
     private void Update() {
-        distance = Vector2.Distance(transform.position, player.position);
-        animator.SetFloat("Distance",distance);
+        targetInRange = Physics2D.OverlapCircle(viewCheckRange.position, viewRadius, targetLayer);
+        if (viewCheckRange){
+
+            // StartCoroutine();
+        }
     }
-    public void Rotate (Vector3 target){
-        if (transform.position.x < target.x)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else{
-            spriteRenderer.flipY = false;
-        }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(viewCheckRange.position, viewRadius);
     }
 }
