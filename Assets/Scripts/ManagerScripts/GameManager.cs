@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject pauseMenu;
-    public TextMeshProUGUI gameOverText;
+    [SerializeField] private GameObject gameOverMenu;
     public bool isGameActive;
+    public bool isPaused;
 
     // Audio
     public AudioClip gameMusic;
+    public AudioClip clickButton;
 
     // Variables para acceder a las imagenes/botones
     public GameObject inactiveSound;
@@ -22,27 +24,29 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        PlayMusic();
+        PlayMusic(false);
         isGameActive = true;
+        isPaused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        PauseWithP();
     }
 
     // Funciones al dar click en botones
 
     public void GameOver()
     {
-        gameOverText.gameObject.SetActive(true);
+        gameOverMenu.SetActive(true);
         isGameActive = false;
     }
 
     public void BackHome()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        AudioManager.Instance.PlaySFX(clickButton);
     }
 
     public void Reset()
@@ -50,6 +54,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         isGameActive = true;
+        AudioManager.Instance.PlaySFX(clickButton);
+        isPaused = false;
     }
 
     public void Pause()
@@ -58,6 +64,23 @@ public class GameManager : MonoBehaviour
         pauseButton.SetActive(false);
         pauseMenu.SetActive(true);
         isGameActive = false;
+        AudioManager.Instance.PlaySFX(clickButton);
+        isPaused = true;
+    }
+
+    public void PauseWithP()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!isPaused)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();
+            }
+        }
     }
 
     public void Resume()
@@ -66,15 +89,20 @@ public class GameManager : MonoBehaviour
         pauseButton.SetActive(true);
         pauseMenu.SetActive(false);
         isGameActive = true;
+        AudioManager.Instance.PlaySFX(clickButton);
+        isPaused = false;
     }
 
 
-    // Funcioens para Audio 
+    // Funciones para Audio 
 
     public void PauseMusic()
     {
         // Pausar musica de fondo
         AudioManager.Instance.StopMusic();
+        // Sonido de efecto al presionar boton
+        AudioManager.Instance.PlaySFX(clickButton);
+
         inactiveSound.SetActive(false);
         activeSound.SetActive(true);
     }
@@ -83,6 +111,25 @@ public class GameManager : MonoBehaviour
     {
         // Reproducir musica de fondo
         AudioManager.Instance.PlayMusic(gameMusic);
+        // Sonido de efecto al presionar boton
+        AudioManager.Instance.PlaySFX(clickButton);
+
+        activeSound.SetActive(false);
+        inactiveSound.SetActive(true);
+    }
+
+    // Este metodo se creo solo para evitar el sonido de Click al ejecutar el juego
+    public void PlayMusic(bool playClickSound = true)
+    {
+        // Reproducir musica de fondo
+        AudioManager.Instance.PlayMusic(gameMusic);
+
+        // Sonido de efecto al presionar boton, solo si playClickSound es true
+        if (playClickSound)
+        {
+            AudioManager.Instance.PlaySFX(clickButton);
+        }
+
         activeSound.SetActive(false);
         inactiveSound.SetActive(true);
     }
