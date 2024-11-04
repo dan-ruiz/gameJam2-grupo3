@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1452747926306824722}
   - component: {fileID: 1545815929176280119}
+  - component: {fileID: 8700149236192469523}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,9 +48,24 @@ MonoBehaviour:
   pauseButton: {fileID: 0}
   pauseMenu: {fileID: 0}
   gameOverMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
   isGameActive: 0
   isPaused: 0
   gameMusic: {fileID: 8300000, guid: d0a4d192162a820469a6da8273838c3e, type: 3}
   clickButton: {fileID: 8300000, guid: f471feb55f08ae94a98536d482c670b3, type: 3}
+  gameOverClip: {fileID: 8300000, guid: dd5fa1094b53d2b4392b67514b4b20b3, type: 3}
   inactiveSound: {fileID: 0}
   activeSound: {fileID: 0}
+--- !u!114 &8700149236192469523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382825929063931104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df310f9cb0182234e848c9f07e992d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: bf1263f30a5284a4daaa23102fb34f1a, type: 2}

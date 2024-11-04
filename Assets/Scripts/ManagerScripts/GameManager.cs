@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseButton;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject optionsMenu;
     public bool isGameActive;
     public bool isPaused;
 
     // Audio
     public AudioClip gameMusic;
     public AudioClip clickButton;
+    public AudioClip gameOverClip;
 
     // Variables para acceder a las imagenes/botones
     public GameObject inactiveSound;
@@ -41,6 +43,8 @@ public class GameManager : MonoBehaviour
     {
         gameOverMenu.SetActive(true);
         isGameActive = false;
+        AudioManager.Instance.PlaySFX(gameOverClip);
+
     }
 
     public void BackHome()
@@ -93,10 +97,15 @@ public class GameManager : MonoBehaviour
         isPaused = false;
     }
 
+    public void Options()
+    {
+        optionsMenu.SetActive(true);
+        AudioManager.Instance.PlaySFX(clickButton);
+    }
 
-    // Funciones para Audio 
+    // Funciones para Audio (Musica)
 
-    public void PauseMusic()
+    public void MuteMusic()
     {
         // Pausar musica de fondo
         AudioManager.Instance.StopMusic();
@@ -133,4 +142,5 @@ public class GameManager : MonoBehaviour
         activeSound.SetActive(false);
         inactiveSound.SetActive(true);
     }
+
 }
