@@ -5,13 +5,14 @@ using UnityEngine;
 public class HealthPlayer : MonoBehaviour
 {
     // Variables
-    public int healthPoints;
+    public int lifePoints;
 
-    public void TakeDamage(int damage){
-        healthPoints-= damage;
-        if (healthPoints<=0)
+    public void TakeDamage(int damage)
+    {
+        lifePoints -= damage;
+        if (lifePoints <= 0)
         {
-            
+            Destroy(gameObject);
         }
-    }
+    } 
 }

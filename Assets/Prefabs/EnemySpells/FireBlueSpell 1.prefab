@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  delayFire: 2
+  delayFire: 2.5
   damage: 1
   direction: {x: 0, y: 0}
 --- !u!58 &4237643777667142343
