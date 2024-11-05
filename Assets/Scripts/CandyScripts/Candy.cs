@@ -27,7 +27,10 @@ public class Candy : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Verificar si el objeto con el que colisiona no tiene el tag "Player", "Ally" o "Candy"
-        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Ally") && !collision.gameObject.CompareTag("Candy"))
+        if (!collision.gameObject.CompareTag("Player") &&
+            !collision.gameObject.CompareTag("Ally") &&
+            !collision.gameObject.CompareTag("Candy") &&
+            !collision.gameObject.CompareTag("MapConfiner")) // Este colicionador es el del cinemachine para que no genere problemas al hacer Shot()
         {
             // Aquí se debe agregar lógica adicional si es necesario, como reducir la vida del enemigo
             /*
