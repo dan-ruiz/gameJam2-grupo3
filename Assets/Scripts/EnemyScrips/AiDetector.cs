@@ -8,31 +8,33 @@ public class AiDetector : MonoBehaviour
 {
     [Range(1, 15)]
     [SerializeField]
-    private float viewRadius;
-    public Transform viewCheckRange;
-    public LayerMask playerLayer;
-    public bool targetInRange;
+    private float viewRadius; // Radio de visión
+    public Transform viewCheckPosition; // Posicion de objetivo si colisiona con el player
+    public LayerMask playerLayer; // Capa del jugador
+    public bool targetInRange; // Estado de si el objetivo está en rango
+    private Collider2D playerCollider; // Collider del jugador detectado
     private void Update()
     {
         CheckRange();
     }
     
     public void CheckRange(){
-        targetInRange = Physics2D.OverlapCircle(viewCheckRange.position, viewRadius, playerLayer);
+        playerCollider = Physics2D.OverlapCircle(viewCheckPosition.position, viewRadius, playerLayer);
+        targetInRange = playerCollider != null; // Actualiza el estado de targetInRange
         if (targetInRange)
         {
-            GetComponent<FollowPlayer>().FollowPlayerPosition();
-            if (TryGetComponent<FireController>(out var fireController))
-            {
-                fireController.CheckFireRange();
-            }
-        }else{
-            GetComponent<AiPatrol>().Patrol();
+             //  Método SetTarget en FollowPlayer
+            if (TryGetComponent<FollowPlayer>(out var followPlayer)) followPlayer.SetTarget(playerCollider.transform);
+            // Verifica si posee FireController
+            if (TryGetComponent<FireController>(out var fireController)) fireController.CheckFireRange();
         }
+        // Si no hay objetivo, inicia el patrullaje
+        else GetComponent<AiPatrol>().Patrol(); 
+        
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(viewCheckRange.position, viewRadius);
+        Gizmos.DrawWireSphere(viewCheckPosition.position, viewRadius);
     }
 }
