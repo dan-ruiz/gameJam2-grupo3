@@ -22,6 +22,10 @@ public class AiDetector : MonoBehaviour
         if (targetInRange)
         {
             GetComponent<FollowPlayer>().FollowPlayerPosition();
+            if (TryGetComponent<FireController>(out var fireController))
+            {
+                fireController.CheckFireRange();
+            }
         }else{
             GetComponent<AiPatrol>().Patrol();
         }

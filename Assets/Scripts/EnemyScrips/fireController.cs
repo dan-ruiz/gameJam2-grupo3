@@ -16,16 +16,23 @@ public class FireController : MonoBehaviour
     public bool playerInRange;
     public GameObject enemySpell;
 
-    private void Start() {
+    private void Start()
+    {
         playerLayer = GetComponent<AiDetector>().playerLayer;
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    public void CheckFireRange(){
         playerInRange = Physics2D.OverlapCircle(fireCheckRange.position, viewRadius, playerLayer);
         if (playerInRange)
         {
+            if (TryGetComponent<FollowPlayer>(out var followPlayer))
+            {
+                if (followPlayer != null)
+                {
+                    followPlayer.FollowPlayerPosition();
+                }
+            }
             playerPos = FireAngle().transform;
 
             Vector2 direction = playerPos.position - transform.position;
@@ -33,7 +40,7 @@ public class FireController : MonoBehaviour
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
-            
+
             if (Time.time > fireDelay + timeLastShoot)
             {
                 timeLastShoot = Time.time;
@@ -47,14 +54,14 @@ public class FireController : MonoBehaviour
         Vector2 shootDir = (playerPos.position - transform.position).normalized;
         spellInvoke.GetComponent<EnemySpell>().SetDirection(shootDir);
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(fireCheckRange.position, viewRadius);
-    }
     public Collider2D FireAngle()
     {
         return Physics2D.OverlapCircle(fireCheckRange.position, viewRadius, playerLayer);
 
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(fireCheckRange.position, viewRadius);
     }
 }
