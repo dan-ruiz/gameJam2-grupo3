@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 311919005}
   - component: {fileID: 311919004}
   - component: {fileID: 311919003}
+  - component: {fileID: 311919006}
   m_Layer: 8
   m_Name: up Decorations
   m_TagString: Untagged
@@ -10495,6 +10496,22 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &311919006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311918999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &324760112
 GameObject:
   m_ObjectHideFlags: 0
@@ -27190,6 +27207,7 @@ GameObject:
   - component: {fileID: 846109100}
   - component: {fileID: 846109099}
   - component: {fileID: 846109098}
+  - component: {fileID: 846109101}
   m_Layer: 8
   m_Name: Trees up
   m_TagString: Untagged
@@ -29379,6 +29397,22 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &846109101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846109094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1081534200
 GameObject:
   m_ObjectHideFlags: 0
@@ -29565,6 +29599,7 @@ GameObject:
   - component: {fileID: 1120378598}
   - component: {fileID: 1120378597}
   - component: {fileID: 1120378596}
+  - component: {fileID: 1120378599}
   m_Layer: 8
   m_Name: Houses complement
   m_TagString: Untagged
@@ -30497,6 +30532,22 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1120378599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120378592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1229116442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30573,6 +30624,7 @@ GameObject:
   - component: {fileID: 1377355342}
   - component: {fileID: 1377355341}
   - component: {fileID: 1377355340}
+  - component: {fileID: 1377355343}
   m_Layer: 8
   m_Name: Trees Over
   m_TagString: Untagged
@@ -35936,6 +35988,22 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1377355343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377355336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1383630965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36098,6 +36166,7 @@ GameObject:
   - component: {fileID: 1439546920}
   - component: {fileID: 1439546919}
   - component: {fileID: 1439546918}
+  - component: {fileID: 1439546921}
   m_Layer: 8
   m_Name: mid Decorations
   m_TagString: Untagged
@@ -44436,6 +44505,22 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1439546921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439546914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1458579884
 GameObject:
   m_ObjectHideFlags: 0
@@ -44450,6 +44535,7 @@ GameObject:
   - component: {fileID: 1458579890}
   - component: {fileID: 1458579889}
   - component: {fileID: 1458579888}
+  - component: {fileID: 1458579891}
   m_Layer: 8
   m_Name: over Decorations
   m_TagString: Untagged
@@ -49483,6 +49569,22 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1458579891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458579884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1543953286
 GameObject:
   m_ObjectHideFlags: 0
@@ -49497,6 +49599,7 @@ GameObject:
   - component: {fileID: 1543953292}
   - component: {fileID: 1543953291}
   - component: {fileID: 1543953290}
+  - component: {fileID: 1543953293}
   m_Layer: 8
   m_Name: Houses
   m_TagString: Untagged
@@ -57385,6 +57488,22 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1543953293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543953286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &1565757720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3528439440201892686, guid: d9044aa7ea0af5e429517a4ba260aa90, type: 3}
@@ -58945,6 +59064,7 @@ GameObject:
   - component: {fileID: 1621902833}
   - component: {fileID: 1621902832}
   - component: {fileID: 1621902831}
+  - component: {fileID: 1621902834}
   m_Layer: 8
   m_Name: Limits
   m_TagString: Untagged
@@ -72317,6 +72437,22 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1621902834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621902827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &1680699122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72414,7 +72550,8 @@ GameObject:
   - component: {fileID: 1904276678}
   - component: {fileID: 1904276680}
   - component: {fileID: 1904276679}
-  m_Layer: 0
+  - component: {fileID: 1904276681}
+  m_Layer: 6
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117631,6 +117768,22 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1904276681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904276677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!114 &1965948491 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8700149236192469523, guid: 140894273df4f004b870ae9d8655971a, type: 3}
@@ -117887,6 +118040,67 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &7480910709593704630
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2020026181311554670, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_NavMeshData
+      value: 
+      objectReference: {fileID: 23800000, guid: 4e8ddd7d329b51749940c2bf948dcee8, type: 2}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.140569
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3382816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.20775945
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5185595887016027532, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5785668355470511722, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
+      propertyPath: m_Name
+      value: NavMesh
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37de791ac1f7f5246a1c7d2eb867877f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -117895,6 +118109,7 @@ SceneRoots:
   - {fileID: 1081534203}
   - {fileID: 1117621384}
   - {fileID: 619394802}
+  - {fileID: 7480910709593704630}
   - {fileID: 631835103}
   - {fileID: 82742344}
   - {fileID: 1229116442}

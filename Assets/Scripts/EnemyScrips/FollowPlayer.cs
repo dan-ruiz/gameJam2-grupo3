@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class FollowPlayer : MonoBehaviour
 {
     [SerializeField] private Transform target;
+    // Capa de Navmesh se arrastra de la escena ya cuando se creo 
     [SerializeField] private NavMeshSurface navMeshSurface2D;
     private NavMeshAgent navMeshAgent;
     
