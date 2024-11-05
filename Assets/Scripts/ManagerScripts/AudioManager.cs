@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
         effectsSource.PlayOneShot(clip);
     }
 
-    public void PauseSFX()
+    public void PauseSFX(AudioClip clip)
     {
         effectsSource.Pause();
     }
