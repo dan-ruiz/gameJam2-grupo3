@@ -15,7 +15,6 @@ public class FollowPlayer : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
-        
     }
     public void FollowPlayerPosition(){
          navMeshAgent.SetDestination(target.position);
