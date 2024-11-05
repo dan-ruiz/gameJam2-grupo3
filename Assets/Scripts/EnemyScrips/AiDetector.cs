@@ -1,31 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AiDetector : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] float distance; 
-    private Vector3 initialPosition;
-
-   private Animator animator;
-    private SpriteRenderer spriteRenderer;
-    private void Start() {
-        animator = GetComponent<Animator>();
-        initialPosition = transform.position;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+    [Range(1, 15)]
+    [SerializeField]
+    private float viewRadius;
+    public Transform viewCheckRange;
+    public LayerMask playerLayer;
+    public bool targetInRange;
+    private void Update()
+    {
+        CheckRange();
     }
-    private void Update() {
-        distance = Vector2.Distance(transform.position, player.position);
-        animator.SetFloat("Distance",distance);
-    }
-    public void Rotate (Vector3 target){
-        if (transform.position.x < target.x)
+    
+    public void CheckRange(){
+        targetInRange = Physics2D.OverlapCircle(viewCheckRange.position, viewRadius, playerLayer);
+        if (targetInRange)
         {
-            spriteRenderer.flipX = true;
+            GetComponent<FollowPlayer>().FollowPlayerPosition();
+            if (TryGetComponent<FireController>(out var fireController))
+            {
+                fireController.CheckFireRange();
+            }
+        }else{
+            GetComponent<AiPatrol>().Patrol();
         }
-        else{
-            spriteRenderer.flipY = false;
-        }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(viewCheckRange.position, viewRadius);
     }
 }
