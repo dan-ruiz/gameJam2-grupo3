@@ -93,6 +93,9 @@ public class PlayerShooting : MonoBehaviour
                 candy.SetActive(true);
                 shootCandy?.SetDirection(inputHandler.MovementInput != Vector2.zero ? inputHandler.MovementInput : lastInput);
 
+
+                Debug.Log($"Candy {lastCandyType} instantiated at position {candy.transform.position}");
+                Debug.Log($"Candy active state: {candy.activeSelf}");
                 AudioManager.Instance.PlaySFX(shootClip);
 
                 // Reducir la cantidad de dulces disponibles
