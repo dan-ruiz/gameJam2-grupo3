@@ -234,14 +234,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1295382699526203771, guid: da8a125b8ccca9b4691700ea2b58af4d, type: 3}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 3916026747313877417, guid: b441ad0bacf44c34f8928221311bc4c6, type: 3}
-    - target: {fileID: 2842845918722369390, guid: da8a125b8ccca9b4691700ea2b58af4d, type: 3}
-      propertyPath: enemyPref
-      value: 
-      objectReference: {fileID: 3916026747313877417, guid: b441ad0bacf44c34f8928221311bc4c6, type: 3}
     - target: {fileID: 6871845419004682479, guid: da8a125b8ccca9b4691700ea2b58af4d, type: 3}
       propertyPath: m_Name
       value: SpawnManager
@@ -36109,6 +36101,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1393575989}
+    - target: {fileID: 7467990213256087503, guid: d9044aa7ea0af5e429517a4ba260aa90, type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 1671638369}
     - target: {fileID: 7496418130877182685, guid: d9044aa7ea0af5e429517a4ba260aa90, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -72518,6 +72514,17 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &1671638369 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2747317098258377448, guid: 5f92965e3fba19b4a8de5ccc46379785, type: 3}
+  m_PrefabInstance: {fileID: 1601164903}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32843255a8f42e2488909cb4e0df097d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1680699122
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
         gameOverMenu.SetActive(true);
         isGameActive = false;
         AudioManager.Instance.PlaySFX(gameOverClip);
-
+        AudioManager.Instance.StopMusic();
     }
 
     public void BackHome()

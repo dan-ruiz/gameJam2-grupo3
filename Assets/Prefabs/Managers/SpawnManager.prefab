@@ -211,7 +211,7 @@ MonoBehaviour:
   - {fileID: 2986852170741769558}
   - {fileID: 2791973908125959342}
   - {fileID: 636194642578548392}
-  enemy: {fileID: 0}
+  enemy: {fileID: 3916026747313877417, guid: b441ad0bacf44c34f8928221311bc4c6, type: 3}
   spawnInterval: 7
   maxWavesOfEnemies: 20
 --- !u!114 &2842845918722369390
@@ -226,6 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f755811070707af41acd316fc73e5965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPref: {fileID: 0}
+  enemyPref: {fileID: 3916026747313877417, guid: b441ad0bacf44c34f8928221311bc4c6, type: 3}
   poolSize: 60
   enemyList: []

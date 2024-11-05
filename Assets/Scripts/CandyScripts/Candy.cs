@@ -61,7 +61,14 @@ public class Candy : MonoBehaviour
 
     private void ReturnToPool()
     {
-        candyPool.ReturnCandyToPool(gameObject);
+        if (candyPool != null)
+        {
+            candyPool.ReturnCandyToPool(gameObject);
+        }
+        else
+        {
+            Debug.LogError("CandyPool is not set for this candy object.");
+        }
     }
 
     private void ShootDistance()
