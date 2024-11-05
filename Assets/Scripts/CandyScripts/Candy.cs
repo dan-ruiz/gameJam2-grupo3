@@ -5,12 +5,12 @@ using UnityEngine;
 public class Candy : MonoBehaviour
 {
 
-    [SerializeField] private float candySpeed = 6f;
-    [SerializeField] private Rigidbody2D candyRb;
-    [SerializeField] private int damage = 5;
-    [SerializeField] private float maxDistance = 10f; // Distancia máxima que puede recorrer el candy
-    private Vector2 startPosition;
-    private CandyPool candyPool;
+    [SerializeField] protected float candySpeed = 6f;
+    [SerializeField] protected Rigidbody2D candyRb;
+    [SerializeField] protected int damage = 5;
+    [SerializeField] protected float maxDistance = 10f; // Distancia máxima que puede recorrer el candy
+    protected Vector2 startPosition;
+    protected CandyPool candyPool;
 
 
     private void Update()
@@ -30,6 +30,10 @@ public class Candy : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player") &&
             !collision.gameObject.CompareTag("Ally") &&
             !collision.gameObject.CompareTag("Candy") &&
+            !collision.gameObject.CompareTag("ChocolateCandy") &&
+            !collision.gameObject.CompareTag("YellowCandy") &&
+            !collision.gameObject.CompareTag("BlueCandy") &&
+            !collision.gameObject.CompareTag("RedCandy") &&
             !collision.gameObject.CompareTag("MapConfiner")) // Este colicionador es el del cinemachine para que no genere problemas al hacer Shot()
         {
             // Aquí se debe agregar lógica adicional si es necesario, como reducir la vida del enemigo

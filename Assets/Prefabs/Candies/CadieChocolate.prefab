@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7607062685081681561}
   m_Layer: 0
   m_Name: CadieChocolate
-  m_TagString: Candy
+  m_TagString: ChocolateCandy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
