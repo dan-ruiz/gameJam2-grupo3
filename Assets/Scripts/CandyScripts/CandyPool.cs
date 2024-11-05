@@ -40,7 +40,7 @@ public class CandyPool : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            GameObject candy = Instantiate(chocolateCandyPref, transform);
+            GameObject candy = Instantiate(candyPrefab, transform);
             candy.GetComponent<Candy>().SetPool(this);
             candy.SetActive(false);
             candyList.Add(candy);
