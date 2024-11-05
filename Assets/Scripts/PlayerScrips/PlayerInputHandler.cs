@@ -6,7 +6,7 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 MovementInput { get; private set; }
     public bool IsAttackPressed { get; private set; }
-    public bool IsInteractPressed { get; private set; }
+    public bool switchCandy { get; private set; }
 
     private void Update()
     {
@@ -18,6 +18,6 @@ public class PlayerInputHandler : MonoBehaviour
 
         //IsAttackPressed = Input.GetButtonDown("Fire1");
         IsAttackPressed = Input.GetKeyDown(KeyCode.Space);
-        IsInteractPressed = Input.GetKeyDown(KeyCode.E);
+        switchCandy = Input.GetKeyDown(KeyCode.Tab);
     }
 }

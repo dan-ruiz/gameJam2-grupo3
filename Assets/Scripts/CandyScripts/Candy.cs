@@ -33,13 +33,13 @@ public class Candy : MonoBehaviour
             !collision.gameObject.CompareTag("MapConfiner")) // Este colicionador es el del cinemachine para que no genere problemas al hacer Shot()
         {
             // Aquí se debe agregar lógica adicional si es necesario, como reducir la vida del enemigo
-            /*
+
             if (collision.gameObject.CompareTag("Enemy"))
             {
                 // Obtener el componente Enemy del objeto colisionado
                 collision.GetComponent<Enemy>().TakeDamage(damage);
             }
-            */
+
 
             ReturnToPool();
         }

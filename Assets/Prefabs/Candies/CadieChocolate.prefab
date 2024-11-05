@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   candySpeed: 6
   candyRb: {fileID: -3176036976038576692}
-  damage: 10
+  damage: 5
   maxDistance: 10
 --- !u!212 &7607062685081681561
 SpriteRenderer:
