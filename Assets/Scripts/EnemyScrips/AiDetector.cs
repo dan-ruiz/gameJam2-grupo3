@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class AiDetector : MonoBehaviour
 {
@@ -8,19 +10,20 @@ public class AiDetector : MonoBehaviour
     [SerializeField]
     private float viewRadius;
     public Transform viewCheckRange;
-    public LayerMask targetLayer;
-    public Vector2 initialPos;
+    public LayerMask playerLayer;
     public bool targetInRange;
-
-    private void Start() {
-        initialPos = transform.position;
-        targetLayer = GetComponent<FireController>().playerLayer;
+    private void Update()
+    {
+        CheckRange();
     }
-    private void Update() {
-        targetInRange = Physics2D.OverlapCircle(viewCheckRange.position, viewRadius, targetLayer);
-        if (viewCheckRange){
-
-            // StartCoroutine();
+    
+    public void CheckRange(){
+        targetInRange = Physics2D.OverlapCircle(viewCheckRange.position, viewRadius, playerLayer);
+        if (targetInRange)
+        {
+            GetComponent<FollowPlayer>().FollowPlayerPosition();
+        }else{
+            GetComponent<AiPatrol>().Patrol();
         }
     }
     private void OnDrawGizmos()

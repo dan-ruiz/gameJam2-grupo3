@@ -16,6 +16,9 @@ public class FireController : MonoBehaviour
     public bool playerInRange;
     public GameObject enemySpell;
 
+    private void Start() {
+        playerLayer = GetComponent<AiDetector>().playerLayer;
+    }
 
     // Update is called once per frame
     void Update()
@@ -42,7 +45,7 @@ public class FireController : MonoBehaviour
     {
         GameObject spellInvoke = Instantiate(enemySpell, fireCheckRange.position, Quaternion.identity);
         Vector2 shootDir = (playerPos.position - transform.position).normalized;
-        spellInvoke.GetComponent<EnemySpell>().setDirection(shootDir);
+        spellInvoke.GetComponent<EnemySpell>().SetDirection(shootDir);
     }
     private void OnDrawGizmos()
     {

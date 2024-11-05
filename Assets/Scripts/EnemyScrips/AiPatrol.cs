@@ -1,36 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AiPatrol : MonoBehaviour
 {
     // Variables
-    public float speed, startWaitTime, minX, maxX, minY, maxY;
-    private float waitTime;
+    GameObject player;
+    NavMeshAgent agent;
     public Transform moveSpot;
+    [SerializeField] LayerMask groundLayer, playerLayer;
+    // Patrol
+    Vector2 destPoint;
+    bool walkPointSet;
+    [SerializeField] float range;
     // Start is called before the first frame update
     void Start()
     {
-        waitTime = startWaitTime;
-        moveSpot.position = new Vector2(Random.Range(minX,maxX), Random.Range(minY,maxY));
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation= false;
+        agent.updateUpAxis = false;
+        player = GameObject.FindWithTag("Player");
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Patrol(){
+        if (!walkPointSet) SearchForDest();
+        if (walkPointSet) agent.SetDestination(destPoint);
+        if (Vector2.Distance(transform.position, destPoint) < 3f) walkPointSet = false;
+    }
+    void SearchForDest()
     {
-        transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.deltaTime);
+        float x = Random.Range(-range, range);
+        float y = Random.Range(-range, range);
 
-        if (Vector2.Distance(transform.position, moveSpot.position)>0.2f)
+        destPoint = new Vector2(transform.position.x + x, transform.position.y + y);
+
+        if (Physics2D.Raycast(destPoint, Vector2.down, groundLayer))
         {
-            if (waitTime <= 0)
-            {
-                waitTime = startWaitTime;
-            }
-            else {
-                waitTime -= Time.deltaTime;
-            }
+            walkPointSet = true;
         }
     }
-
-
 }
+

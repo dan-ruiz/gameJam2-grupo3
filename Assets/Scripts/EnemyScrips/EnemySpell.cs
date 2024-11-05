@@ -17,7 +17,7 @@ public class EnemySpell : MonoBehaviour
         transform.Translate(speed * Time.deltaTime * direction );
         StartCoroutine(SelfDestruct());
     }
-    public void setDirection(Vector2 dir)
+    public void SetDirection(Vector2 dir)
     {
         direction = dir;
 
