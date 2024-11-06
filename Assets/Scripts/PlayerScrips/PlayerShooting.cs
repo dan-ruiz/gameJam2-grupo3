@@ -11,6 +11,10 @@ public class PlayerShooting : MonoBehaviour
 
     private GameManager gameManager;
 
+    // Para modificar el ui de los dulces
+    private CandyUI candyUI;
+    private CandySelectorUI candySelectorUI;
+
     // Variables de animacion
     public bool hasShot = false;
     private PlayerAnimator playerAnimator;
@@ -50,7 +54,11 @@ public class PlayerShooting : MonoBehaviour
 
     void Start()
     {
+        candyUI = FindObjectOfType<CandyUI>();
+        candySelectorUI = FindObjectOfType<CandySelectorUI>();
 
+        // Asegurarse de que el círculo del dulce por defecto esté activado
+        candySelectorUI.UpdateCandySelection(lastCandyType);
     }
 
 
@@ -93,7 +101,6 @@ public class PlayerShooting : MonoBehaviour
                 candy.SetActive(true);
                 shootCandy?.SetDirection(inputHandler.MovementInput != Vector2.zero ? inputHandler.MovementInput : lastInput);
 
-
                 Debug.Log($"Candy {lastCandyType} instantiated at position {candy.transform.position}");
                 Debug.Log($"Candy active state: {candy.activeSelf}");
                 AudioManager.Instance.PlaySFX(shootClip);
@@ -102,6 +109,7 @@ public class PlayerShooting : MonoBehaviour
                 if (lastCandyType != "ChocolateCandy")
                 {
                     candyCounts[lastCandyType]--;
+                    candyUI.RemoveCandies(lastCandyType, 1); // Actualizar la UI
                 }
             }
             else
@@ -112,7 +120,6 @@ public class PlayerShooting : MonoBehaviour
             }
         }
         hasShot = false;
-
     }
     private IEnumerator ResetShootState()
     {
@@ -128,6 +135,7 @@ public class PlayerShooting : MonoBehaviour
     public void UpdateLastCandyType(string candyType)
     {
         lastCandyType = candyType;
+        candySelectorUI.UpdateCandySelection(candyType);
     }
 
     // Método para cambiar el tipo de dulce
@@ -141,6 +149,17 @@ public class PlayerShooting : MonoBehaviour
         } while (candyCounts[lastCandyType] == 0 && currentCandyIndex != initialIndex);
 
         Debug.Log($"Candy type switched to: {lastCandyType}");
+        candySelectorUI.UpdateCandySelection(lastCandyType);
+    }
+
+    // Método para obtener la cantidad de un tipo específico de dulce
+    public int GetCandyQuantity(string candyType)
+    {
+        if (candyCounts.ContainsKey(candyType))
+        {
+            return candyCounts[candyType];
+        }
+        return 0;
     }
 
     // Método para agregar dulces a la cantidad disponible
