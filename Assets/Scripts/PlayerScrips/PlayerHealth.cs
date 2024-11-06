@@ -9,7 +9,7 @@ public class PlayerHealth : MonoBehaviour
     private Enemy enemy;
 
     public int maxPlayerHealth; // Salud maxima del jugador
-    [SerializeField] private int currentPlayerHealth; // Salud actual del jugador
+    [SerializeField] public int currentPlayerHealth; // Salud actual del jugador
     private float timeSinceLastDamage = 0f;
     private float regenInterval = 5f; // Intervalo de tiempo para regenerar vida
 
