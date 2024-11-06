@@ -43,8 +43,10 @@ public class GameManager : MonoBehaviour
     {
         gameOverMenu.SetActive(true);
         isGameActive = false;
-        AudioManager.Instance.PlaySFX(gameOverClip);
+        Time.timeScale = 0;
 
+        AudioManager.Instance.PlaySFX(gameOverClip);
+        AudioManager.Instance.StopMusic();
     }
 
     public void BackHome()

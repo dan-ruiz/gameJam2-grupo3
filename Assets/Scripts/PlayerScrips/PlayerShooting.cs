@@ -11,6 +11,10 @@ public class PlayerShooting : MonoBehaviour
 
     private GameManager gameManager;
 
+    // Para modificar el ui de los dulces
+    private CandyUI candyUI;
+    private CandySelectorUI candySelectorUI;
+
     // Variables de animacion
     public bool hasShot = false;
     private PlayerAnimator playerAnimator;
@@ -19,6 +23,20 @@ public class PlayerShooting : MonoBehaviour
 
     // Variables de Audio
     public AudioClip shootClip;
+
+    // Último power-up recogido
+    private string lastCandyType = "ChocolateCandy";
+    private List<string> candyTypes = new List<string> { "ChocolateCandy", "YellowCandy", "BlueCandy", "RedCandy" };
+    private int currentCandyIndex = 0;
+
+    // Cantidad de dulces disponibles
+    private Dictionary<string, int> candyCounts = new Dictionary<string, int>
+    {
+        { "ChocolateCandy", int.MaxValue }, // Ilimitado
+        { "YellowCandy", 0 },
+        { "BlueCandy", 0 },
+        { "RedCandy", 0 }
+    };
 
     void Awake()
     {
@@ -36,7 +54,11 @@ public class PlayerShooting : MonoBehaviour
 
     void Start()
     {
+        candyUI = FindObjectOfType<CandyUI>();
+        candySelectorUI = FindObjectOfType<CandySelectorUI>();
 
+        // Asegurarse de que el círculo del dulce por defecto esté activado
+        candySelectorUI.UpdateCandySelection(lastCandyType);
     }
 
 
@@ -52,33 +74,52 @@ public class PlayerShooting : MonoBehaviour
         {
             lastInput = inputHandler.MovementInput;
         }
+
+        if (inputHandler.SwitchCandy)
+        {
+            SwitchCandyType();
+        }
     }
 
     public void Shoot()
     {
         if (inputHandler.IsAttackPressed)
         {
-            hasShot = true;
-            if (playerAnimator != null)
+            if (candyCounts[lastCandyType] > 0)
             {
-                playerAnimator.GetComponent<Animator>().SetBool(IsAttackingHash, true);
+                hasShot = true;
+                if (playerAnimator != null)
+                {
+                    playerAnimator.GetComponent<Animator>().SetBool(IsAttackingHash, true);
+                }
+                StartCoroutine(ResetShootState());
+
+                // Instanciar el candy en la posición del punto de disparo
+                GameObject candy = CandyPool.Instance.RequestCandy(lastCandyType);
+                candy.transform.position = (Vector2)transform.position + shootOffset * inputHandler.MovementInput;
+                candy.TryGetComponent(out Candy shootCandy);
+                candy.SetActive(true);
+                shootCandy?.SetDirection(inputHandler.MovementInput != Vector2.zero ? inputHandler.MovementInput : lastInput);
+
+                Debug.Log($"Candy {lastCandyType} instantiated at position {candy.transform.position}");
+                Debug.Log($"Candy active state: {candy.activeSelf}");
+                AudioManager.Instance.PlaySFX(shootClip);
+
+                // Reducir la cantidad de dulces disponibles
+                if (lastCandyType != "ChocolateCandy")
+                {
+                    candyCounts[lastCandyType]--;
+                    candyUI.RemoveCandies(lastCandyType, 1); // Actualizar la UI
+                }
             }
-            StartCoroutine(ResetShootState());
-            //Debug.Log("hasShot: " + hasShot);
-
-            // Instanciar el candy en la posición del punto de disparo
-            GameObject candy = CandyPool.Instance.RequestCandy();
-            candy.transform.position = (Vector2)transform.position + shootOffset * inputHandler.MovementInput;
-            candy.TryGetComponent(out Candy shootCandy);
-            candy.SetActive(true);
-            shootCandy?.SetDirection(inputHandler.MovementInput != Vector2.zero ? inputHandler.MovementInput : lastInput);
-
-            AudioManager.Instance.PlaySFX(shootClip);
-
+            else
+            {
+                // Si no hay dulces disponibles, disparar chocolate
+                lastCandyType = "ChocolateCandy";
+                Shoot();
+            }
         }
         hasShot = false;
-        //Debug.Log("2nd hasShot: " + hasShot);
-
     }
     private IEnumerator ResetShootState()
     {
@@ -87,6 +128,46 @@ public class PlayerShooting : MonoBehaviour
         if (playerAnimator != null)
         {
             playerAnimator.GetComponent<Animator>().SetBool(IsAttackingHash, false);
+        }
+    }
+
+    // Método para actualizar el tipo de dulce basado en el último power-up recogido
+    public void UpdateLastCandyType(string candyType)
+    {
+        lastCandyType = candyType;
+        candySelectorUI.UpdateCandySelection(candyType);
+    }
+
+    // Método para cambiar el tipo de dulce
+    private void SwitchCandyType()
+    {
+        int initialIndex = currentCandyIndex;
+        do
+        {
+            currentCandyIndex = (currentCandyIndex + 1) % candyTypes.Count;
+            lastCandyType = candyTypes[currentCandyIndex];
+        } while (candyCounts[lastCandyType] == 0 && currentCandyIndex != initialIndex);
+
+        Debug.Log($"Candy type switched to: {lastCandyType}");
+        candySelectorUI.UpdateCandySelection(lastCandyType);
+    }
+
+    // Método para obtener la cantidad de un tipo específico de dulce
+    public int GetCandyQuantity(string candyType)
+    {
+        if (candyCounts.ContainsKey(candyType))
+        {
+            return candyCounts[candyType];
+        }
+        return 0;
+    }
+
+    // Método para agregar dulces a la cantidad disponible
+    public void AddCandies(string candyType, int amount)
+    {
+        if (candyCounts.ContainsKey(candyType))
+        {
+            candyCounts[candyType] += amount;
         }
     }
 

@@ -14,7 +14,9 @@ GameObject:
   - component: {fileID: 8677952340869111330}
   - component: {fileID: 3864334109963396716}
   - component: {fileID: 1698518240308175177}
-  m_Layer: 0
+  - component: {fileID: 5505932568591936969}
+  - component: {fileID: -3215789505243909750}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -139,6 +141,38 @@ MonoBehaviour:
   shootOffset: 1
   hasShot: 0
   shootClip: {fileID: 8300000, guid: 1f27e425d6d78d348960dd6a2170c3d8, type: 3}
+--- !u!114 &5505932568591936969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155300272158924521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4afd13c03dbbfd47b9447ae89e7a46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yellowCandyList: []
+  blueCandyList: []
+  redCandyList: []
+--- !u!114 &-3215789505243909750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155300272158924521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32843255a8f42e2488909cb4e0df097d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayerHealth: 5
+  currentPlayerHealth: 5
+  changeHealth:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1585145035144510871
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,14 +5,13 @@ using UnityEngine;
 public class Candy : MonoBehaviour
 {
 
-    [SerializeField] private float candySpeed = 6f;
-    [SerializeField] private Rigidbody2D candyRb;
-    [SerializeField] private int damage = 5;
-    [SerializeField] private float maxDistance = 10f; // Distancia máxima que puede recorrer el candy
-    private Vector2 startPosition;
-    private CandyPool candyPool;
-
-
+    [SerializeField] protected float candySpeed = 6f;
+    [SerializeField] protected Rigidbody2D candyRb;
+    [SerializeField] protected int damage = 5;
+    [SerializeField] protected float maxDistance = 10f; // Distancia máxima que puede recorrer el candy
+    protected Vector2 startPosition;
+    protected CandyPool candyPool;
+    private static readonly HashSet<string> ignoreTags = new HashSet<string> { "Player", "Ally", "Candy", "ChocolateCandy", "YellowCandy", "BlueCandy", "RedCandy", "MapConfiner" };
     private void Update()
     {
         ShootDistance();
@@ -23,24 +22,13 @@ public class Candy : MonoBehaviour
         startPosition = transform.position;
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Verificar si el objeto con el que colisiona no tiene el tag "Player", "Ally" o "Candy"
-        if (!collision.gameObject.CompareTag("Player") &&
-            !collision.gameObject.CompareTag("Ally") &&
-            !collision.gameObject.CompareTag("Candy") &&
-            !collision.gameObject.CompareTag("MapConfiner")) // Este colicionador es el del cinemachine para que no genere problemas al hacer Shot()
+        if (!ignoreTags.Contains(collision.gameObject.tag))
         {
-            // Aquí se debe agregar lógica adicional si es necesario, como reducir la vida del enemigo
-            /*
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                // Obtener el componente Enemy del objeto colisionado
-                collision.GetComponent<Enemy>().TakeDamage(damage);
-            }
-            */
-
+            if (collision.TryGetComponent<Enemy>(out var enemy))enemy.TakeDamage(damage);
+            else if (collision.TryGetComponent<BossStats>(out var boss)) boss.TakeDamage(damage);
             ReturnToPool();
         }
     }
@@ -57,7 +45,14 @@ public class Candy : MonoBehaviour
 
     private void ReturnToPool()
     {
-        candyPool.ReturnCandyToPool(gameObject);
+        if (candyPool != null)
+        {
+            candyPool.ReturnCandyToPool(gameObject);
+        }
+        else
+        {
+            Debug.LogError("CandyPool is not set for this candy object.");
+        }
     }
 
     private void ShootDistance()

@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: -3176036976038576692}
   - component: {fileID: 3776724999099495305}
   - component: {fileID: 4303986375879813765}
+  - component: {fileID: -4989839736157242910}
   - component: {fileID: 7607062685081681561}
   m_Layer: 0
   m_Name: CadieChocolate
-  m_TagString: Candy
+  m_TagString: ChocolateCandy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +112,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   candySpeed: 6
   candyRb: {fileID: -3176036976038576692}
-  damage: 10
+  damage: 5
+  maxDistance: 10
+--- !u!114 &-4989839736157242910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874139411150371039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb2d0089bd9213448999104937b8240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candySpeed: 6
+  candyRb: {fileID: -3176036976038576692}
+  damage: 5
   maxDistance: 10
 --- !u!212 &7607062685081681561
 SpriteRenderer:
