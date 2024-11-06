@@ -9,7 +9,7 @@ public class DraculaAttack : MonoBehaviour {
 
     public bool hasShot = false;
     private DraculaAnimator draculaAnimator;
-    private float attackDuration = 0.1f; // Duración de la animación
+    private float attackDuration = 0.1f; // Duraciï¿½n de la animaciï¿½n
     private readonly int IsAttackingHash = Animator.StringToHash("IsAttacking");
 
 
@@ -46,7 +46,7 @@ public class DraculaAttack : MonoBehaviour {
             StartCoroutine(ResetShootState());
 
             /*
-            // Instanciar el candy en la posición del punto de disparo
+            // Instanciar el candy en la posiciï¿½n del punto de disparo
             GameObject candy = CandyPool.Instance.RequestCandy();
             candy.transform.position = (Vector2)transform.position + shootOffset * inputHandler.MovementInput;
             candy.TryGetComponent(out Candy shootCandy);
