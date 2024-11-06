@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 470369174}
+  m_BoundingShape2D: {fileID: 0}
   m_Damping: 0
   m_MaxWindowSize: -1
   m_Padding: 0
@@ -4626,7 +4626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470369175}
-  - component: {fileID: 470369174}
+  - component: {fileID: 470369176}
   m_Layer: 0
   m_Name: MapConfiner
   m_TagString: MapConfiner
@@ -4634,7 +4634,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!60 &470369174
+--- !u!4 &470369175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470369173}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.54558253, y: -10.210946, z: -3.7903376}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &470369176
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4678,28 +4693,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.9861069, y: 26.438213}
-      - {x: -0.38805205, y: 26.37307}
-      - {x: -14.836952, y: 26.238125}
-      - {x: -14.635353, y: 4.041483}
-      - {x: 15.6341, y: 4.051408}
-      - {x: 15.841787, y: 26.234993}
+    - - {x: -0.3442402, y: 26.129534}
+      - {x: -14.364516, y: 26.006287}
+      - {x: -14.697869, y: 3.9553397}
+      - {x: 15.390113, y: 4.526706}
+      - {x: 15.064904, y: 26.471272}
   m_UseDelaunayMesh: 0
---- !u!4 &470369175
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 470369173}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54558253, y: -10.210946, z: -3.7903376}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &489086355
 GameObject:
   m_ObjectHideFlags: 0
@@ -5081,7 +5080,7 @@ PrefabInstance:
     - target: {fileID: 3635342918520921974, guid: 01f82e675d8e62143a7e226d778ebdad, type: 3}
       propertyPath: fireballPrefab
       value: 
-      objectReference: {fileID: 7590832290606677735, guid: ef5ac37c9bb156646a98b7e8a7bf56b4, type: 3}
+      objectReference: {fileID: 2938471055767246523, guid: 9b05b280ab3beff43aaaf2532e2c7f26, type: 3}
     - target: {fileID: 3635342918520921974, guid: 01f82e675d8e62143a7e226d778ebdad, type: 3}
       propertyPath: fireballSpawnPoint
       value: 
@@ -5645,13 +5644,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1240628759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c33bda221ad17034fbb3b69ea5140949, type: 3}
+  m_Script: {fileID: 11500000, guid: 92632037b9113534d83b6ffbee3f28b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
   detectionRange: 20
-  player: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!1001 &1289270743
 PrefabInstance:
   m_ObjectHideFlags: 0
