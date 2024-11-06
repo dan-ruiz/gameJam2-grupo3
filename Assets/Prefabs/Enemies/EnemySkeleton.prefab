@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1846624909361195781}
   m_Layer: 0
-  m_Name: NavmeshAgent
+  m_Name: MoveSpot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8948556688647357218}
   m_Layer: 0
-  m_Name: Agent
+  m_Name: VisionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 3
-  viewCheckRange: {fileID: 8948556688647357218}
+  viewCheckPosition: {fileID: 8948556688647357218}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -280,10 +280,10 @@ MonoBehaviour:
   moveSpot: {fileID: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   range: 5
 --- !u!114 &7287746291749464538
 MonoBehaviour:
