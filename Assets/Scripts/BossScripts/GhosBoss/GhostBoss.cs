@@ -106,7 +106,13 @@ public class GhostBoss : MonoBehaviour
                         else { routine = 0; timer = 0; }
                         break;
                     case 4:
-
+                    if (fase ==2)
+                    {
+                        anim.SetBool("Movement",false);
+                        anim.SetBool("Idle",false);
+                        anim.SetBool("ghost_Attack",true);
+                    }else { routine = 0; timer = 0; }
+                    break;
                 }
             }
         }

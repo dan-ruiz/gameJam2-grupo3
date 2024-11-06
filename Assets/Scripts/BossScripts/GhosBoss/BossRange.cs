@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossRange
+public class BossRange : MonoBehaviour
 {
     public Animator anim;
     public GhostBoss ghostBoss;
@@ -30,13 +30,14 @@ public class BossRange
                 case 3:
                     // Fire Ball
                     if (ghostBoss.fase == 2) anim.SetFloat("skill", 0);
-                    else {melee=0;}
-                    break;  
+                    else { melee = 0; }
+                    break;
             }
             anim.SetBool("movement", false);
             anim.SetBool("Idle", false);
             ghostBoss.attacking = true;
-            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
+
 }

@@ -14,7 +14,7 @@ public class FlamethrowerSpell : MonoBehaviour
     private void Update()
     {
         transform.Translate(InitialPos * speed * Time.deltaTime);
-        transform.localScale += new Vector2(2, 2) * Time.deltaTime;
+        transform.localScale += new Vector3(2, 2,0) * Time.deltaTime;
 
         timer += 1 * Time.deltaTime;
         if (timer > 1)
