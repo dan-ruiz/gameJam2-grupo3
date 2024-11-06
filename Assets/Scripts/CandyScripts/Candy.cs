@@ -12,6 +12,7 @@ public class Candy : MonoBehaviour
     protected Vector2 startPosition;
     protected CandyPool candyPool;
     private static readonly HashSet<string> ignoreTags = new HashSet<string> { "Player", "Ally", "Candy", "ChocolateCandy", "YellowCandy", "BlueCandy", "RedCandy", "MapConfiner" };
+    
     private void Update()
     {
         ShootDistance();
@@ -20,6 +21,10 @@ public class Candy : MonoBehaviour
     private void OnEnable()
     {
         startPosition = transform.position;
+        // Asegurar que tengamos una referencia al pool cuando el objeto se activa
+        if (candyPool == null) {
+            candyPool = CandyPool.Instance;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,6 +48,7 @@ public class Candy : MonoBehaviour
         candyRb.velocity = direction * candySpeed;
     }
 
+    /*
     private void ReturnToPool()
     {
         if (candyPool != null)
@@ -53,6 +59,19 @@ public class Candy : MonoBehaviour
         {
             Debug.LogError("CandyPool is not set for this candy object.");
         }
+    }
+    */
+
+    private void ReturnToPool() {
+        // Si no tenemos referencia al pool, intentar obtenerla del singleton
+        if (candyPool == null) {
+            candyPool = CandyPool.Instance;
+            if (candyPool == null) {
+                Debug.LogError("CandyPool instance not found in scene.");
+                return;
+            }
+        }
+        candyPool.ReturnCandyToPool(gameObject);
     }
 
     private void ShootDistance()
