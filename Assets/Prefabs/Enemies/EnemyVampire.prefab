@@ -160,14 +160,16 @@ GameObject:
   m_Component:
   - component: {fileID: 2453229199144231461}
   - component: {fileID: 3590601794389409194}
+  - component: {fileID: -8138926131838368061}
   - component: {fileID: 3056488537361335663}
   - component: {fileID: 3160360014868951639}
   - component: {fileID: 8169796558646521612}
   - component: {fileID: 3327317414517776802}
+  - component: {fileID: -1981788033940617541}
   - component: {fileID: 9157569151867094276}
   m_Layer: 0
   m_Name: EnemyVampire
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -217,6 +219,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!58 &-8138926131838368061
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5251057421111558989}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &3056488537361335663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +329,21 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   range: 7
+--- !u!114 &-1981788033940617541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5251057421111558989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d019948df91ab834b932f26c70650f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialHealth: 10
+  damage: 1
+  speed: 0
 --- !u!195 &9157569151867094276
 NavMeshAgent:
   m_ObjectHideFlags: 0

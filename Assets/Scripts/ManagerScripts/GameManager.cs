@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
     {
         gameOverMenu.SetActive(true);
         isGameActive = false;
+        Time.timeScale = 0;
+
         AudioManager.Instance.PlaySFX(gameOverClip);
         AudioManager.Instance.StopMusic();
     }

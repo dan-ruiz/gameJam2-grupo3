@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     private SpawnEnemyPool enemyPool;
 
+
     void Start()
     {
         initialHealth = enemyHealth; // Guardar la salud inicial
@@ -51,8 +52,15 @@ public class Enemy : MonoBehaviour
 
 
     // Método para infligir daño (opcional)
-    /*public void Attack(Player player)
+    public void Attack(PlayerHealth player)
     {
         player.TakeDamage(damage);
-    }*/
+    }
+
+    // Método para obtener el daño
+    public int GetDamage()
+    {
+        return damage;
+    }
+
 }

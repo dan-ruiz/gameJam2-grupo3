@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PlayerHealth : MonoBehaviour
 {
     private GameManager gameManager;
+    private Enemy enemy;
 
     public int maxPlayerHealth; // Salud maxima del jugador
     [SerializeField] private int currentPlayerHealth; // Salud actual del jugador
@@ -17,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
     {
         // Asignar la referencia de GameManager
         gameManager = FindObjectOfType<GameManager>();
+        // Asignar la referencia del enemigo
+        enemy = FindObjectOfType<Enemy>();
 
         currentPlayerHealth = maxPlayerHealth; // Inicializar la salud actual al máximo
         changeHealth.Invoke(currentPlayerHealth);
@@ -27,9 +30,13 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         timeSinceLastDamage += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.H))
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
         {
-            TakeDamage(1);
+            TakeDamage(enemy.GetDamage());
         }
     }
 
