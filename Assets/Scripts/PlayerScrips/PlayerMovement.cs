@@ -12,15 +12,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
-    private GameManager gameManager;
-
-    // Events for animation and other systems
+     // Events for animation and other system
     public event Action<Vector2> OnMove;
 
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        
         inputHandler = GetComponent<PlayerInputHandler>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -34,10 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameManager.isGameActive)
-        {
-            Move();
-        }
+       Move();
 
     }
 
