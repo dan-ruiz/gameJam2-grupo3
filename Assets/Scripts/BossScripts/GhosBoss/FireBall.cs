@@ -10,7 +10,7 @@ public class FireBall : MonoBehaviour
     public Transform initialPos;
     private void Start()
     {
-        initialPos = new Vector2(transform.position.x, transform.position.y);
+        
     }
     private void Update()
     {
