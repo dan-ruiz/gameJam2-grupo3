@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     private float regenInterval = 5f; // Intervalo de tiempo para regenerar vida
 
     public UnityEvent<int> changeHealth;
+
     void Start()
     {
         // Asignar la referencia de GameManager

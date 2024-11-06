@@ -33,6 +33,8 @@ public class Candy : MonoBehaviour
         if (!ignoreTags.Contains(collision.gameObject.tag))
         {
             if (collision.TryGetComponent<Enemy>(out var enemy))enemy.TakeDamage(damage);
+            //else if (collision.TryGetComponent<BossStats>(out var boss)) boss.TakeDamage(damage);
+            else if (collision.TryGetComponent<SkeletonBossStats>(out var skeletonBoss)) skeletonBoss.TakeDamage(damage);
             else if (collision.TryGetComponent<BossStats>(out var boss)) boss.TakeDamage(damage);
             ReturnToPool();
         }

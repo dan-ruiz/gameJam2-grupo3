@@ -12,9 +12,12 @@ public class BossStats : MonoBehaviour
     public float lifePoints, maxLifePoints, speed, meleeDamage, spellDamage;
     private bool isFacingRight; // Indica si el boss está mirando a la derecha
 
+    // ACÁ IRÍA LO DE LA BARRA DE LA VIDA
+
     void Start()
     {
         // Definición de variables del boss
+        animator = GetComponent<Animator>();
         lifePoints = maxLifePoints;
         rb2D = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -23,11 +26,16 @@ public class BossStats : MonoBehaviour
     public void TakeDamage(int amount)
     {
         lifePoints -= amount;
+
         if (lifePoints <= 0)
         {
-            animator.SetBool("IsDeath", true);
-            Destroy(gameObject);
+            //animator.SetBool("IsDeath", true);
+            animator.SetTrigger("Death");
         }
+    }
+
+    private void Death() {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
