@@ -12,6 +12,7 @@ TagManager:
   - RedCandy
   - ChocolateCandy
   - Boss
+  - Fireball
   layers:
   - Default
   - TransparentFX
