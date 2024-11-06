@@ -11,6 +11,7 @@ TagManager:
   - BlueCandy
   - RedCandy
   - ChocolateCandy
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -11,8 +11,7 @@ public class Candy : MonoBehaviour
     [SerializeField] protected float maxDistance = 10f; // Distancia máxima que puede recorrer el candy
     protected Vector2 startPosition;
     protected CandyPool candyPool;
-
-
+    private static readonly HashSet<string> ignoreTags = new HashSet<string> { "Player", "Ally", "Candy", "ChocolateCandy", "YellowCandy", "BlueCandy", "RedCandy", "MapConfiner" };
     private void Update()
     {
         ShootDistance();
@@ -23,28 +22,13 @@ public class Candy : MonoBehaviour
         startPosition = transform.position;
     }
 
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Verificar si el objeto con el que colisiona no tiene el tag "Player", "Ally" o "Candy"
-        if (!collision.gameObject.CompareTag("Player") &&
-            !collision.gameObject.CompareTag("Ally") &&
-            !collision.gameObject.CompareTag("Candy") &&
-            !collision.gameObject.CompareTag("ChocolateCandy") &&
-            !collision.gameObject.CompareTag("YellowCandy") &&
-            !collision.gameObject.CompareTag("BlueCandy") &&
-            !collision.gameObject.CompareTag("RedCandy") &&
-            !collision.gameObject.CompareTag("MapConfiner")) // Este colicionador es el del cinemachine para que no genere problemas al hacer Shot()
+        if (!ignoreTags.Contains(collision.gameObject.tag))
         {
-            // Aquí se debe agregar lógica adicional si es necesario, como reducir la vida del enemigo
-
-            if (collision.gameObject.CompareTag("Enemy"))
-            {
-                // Obtener el componente Enemy del objeto colisionado
-                collision.GetComponent<Enemy>().TakeDamage(damage);
-            }
-
-
+            if (collision.TryGetComponent<Enemy>(out var enemy))enemy.TakeDamage(damage);
+            else if (collision.TryGetComponent<BossStats>(out var boss)) boss.TakeDamage(damage);
             ReturnToPool();
         }
     }
