@@ -238,8 +238,8 @@ GameObject:
   - component: {fileID: 543951314695831055}
   - component: {fileID: 4179364197591438778}
   - component: {fileID: 1380531716162623598}
-  - component: {fileID: 5886890928297235904}
   - component: {fileID: 5053714670081636030}
+  - component: {fileID: 7895952225410106979}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -362,25 +362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootOffset: 0
   hasShot: 0
---- !u!114 &5886890928297235904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7022060500351454857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d69137eb05180b747a3f6d8763d3d3a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 7493787420388311802}
-  rb2D: {fileID: 0}
-  lifePoints: 0
-  maxLifePoints: 300
-  speed: 10
-  meleeDamage: 1
-  spellDamage: 3
 --- !u!114 &5053714670081636030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,3 +375,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &7895952225410106979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7022060500351454857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf6996291f23f34e9b230615bc05e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidB2D: {fileID: 5591541317076241999}
+  player: {fileID: 0}
+  lifePoints: 250

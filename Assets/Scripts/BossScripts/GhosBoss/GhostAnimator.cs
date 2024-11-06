@@ -5,11 +5,11 @@ using UnityEngine;
 public class GhostAnimator : MonoBehaviour
 {
     private Animator animator;
-    // private PlayerMovement movement;
+    private PlayerMovement movement;
 
     // Cache animator parameters for better performance
-    // private readonly int HorizontalHash = Animator.StringToHash("MovementX");
-    // private readonly int VerticalHash = Animator.StringToHash("MovementY");
+    private readonly int HorizontalHash = Animator.StringToHash("MovementX");
+    private readonly int VerticalHash = Animator.StringToHash("MovementY");
 
     private readonly int IdleHorizontalHash = Animator.StringToHash("LastX");
     private readonly int IdleVerticalHash = Animator.StringToHash("LastY");
@@ -18,10 +18,9 @@ public class GhostAnimator : MonoBehaviour
 
     private void Awake() {
         animator = GetComponent<Animator>();
-        // movement = transform.parent.gameObject.GetComponent<PlayerMovement>();
 
         // Subscribe to events
-        // movement.OnMove += HandleMovementAnimation;
+        movement.OnMove += HandleMovementAnimation;
 
         // Set a default facing direction (e.g., down)
         animator.SetFloat(IdleHorizontalHash, 0f);
@@ -31,8 +30,8 @@ public class GhostAnimator : MonoBehaviour
 
     private void HandleMovementAnimation(Vector2 movement) {
 
-        // animator.SetFloat(HorizontalHash, movement.x);
-        // animator.SetFloat(VerticalHash, movement.y);
+        animator.SetFloat(HorizontalHash, movement.x);
+        animator.SetFloat(VerticalHash, movement.y);
 
         if (movement.magnitude > 0) {
             animator.SetFloat(IdleHorizontalHash, movement.x);

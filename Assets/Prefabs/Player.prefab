@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 3864334109963396716}
   - component: {fileID: 1698518240308175177}
   - component: {fileID: 5505932568591936969}
-  - component: {fileID: 2325649321887749862}
-  - component: {fileID: -298315410552898721}
-  - component: {fileID: 2747317098258377448}
+  - component: {fileID: -8755970989733491479}
+  - component: {fileID: 3339453921615041225}
+  - component: {fileID: 4259067745123740788}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -158,6 +158,58 @@ MonoBehaviour:
   yellowCandyList: []
   blueCandyList: []
   redCandyList: []
+--- !u!114 &-8755970989733491479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155300272158924521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b744d3f5aa0e54c82078b89b6f152e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!195 &3339453921615041225
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155300272158924521}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &4259067745123740788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155300272158924521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32843255a8f42e2488909cb4e0df097d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxPlayerHealth: 5
+  currentPlayerHealth: 0
+  changeHealth:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1585145035144510871
 GameObject:
   m_ObjectHideFlags: 0
